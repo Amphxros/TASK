@@ -62,7 +62,7 @@ MonoBehaviour:
   InheritWeaponVelocity: 0
   Damage: 7
   AreaOfDamage: {fileID: 0}
-  RadiusColor: {r: 0, g: 1, b: 1, a: 1}
+  RadiusColor: {r: 1, g: 0, b: 0.9298849, a: 1}
 --- !u!1 &5564024855854763701
 GameObject:
   m_ObjectHideFlags: 0

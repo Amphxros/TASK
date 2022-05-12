@@ -47,7 +47,7 @@ MonoBehaviour:
   Radius: 0.01
   Root: {fileID: 3659995153115176982}
   Tip: {fileID: 1135791333161367127}
-  MaxLifeTime: 5
+  MaxLifeTime: 0.1
   ImpactVfx: {fileID: 7655095426451682942, guid: a7d68b1a502e02a49b8efb1b86a8c931,
     type: 3}
   ImpactVfxLifetime: 5
@@ -56,7 +56,7 @@ MonoBehaviour:
   HittableLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  Speed: 300
+  Speed: 455
   GravityDownAcceleration: 0
   TrajectoryCorrectionDistance: 5
   InheritWeaponVelocity: 0

@@ -92,6 +92,10 @@ PrefabInstance:
       value: Mesh_Jetpack
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 8a8f77597c6be5e429a0dde1309ab87d, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 8a8f77597c6be5e429a0dde1309ab87d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -104,6 +108,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 8a8f77597c6be5e429a0dde1309ab87d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 8a8f77597c6be5e429a0dde1309ab87d, type: 3}
       propertyPath: m_LocalRotation.x
       value: 0.000000021855694
       objectReference: {fileID: 0}
@@ -114,14 +122,6 @@ PrefabInstance:
     - target: {fileID: 400000, guid: 8a8f77597c6be5e429a0dde1309ab87d, type: 3}
       propertyPath: m_LocalRotation.z
       value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 8a8f77597c6be5e429a0dde1309ab87d, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 8a8f77597c6be5e429a0dde1309ab87d, type: 3}
-      propertyPath: m_RootOrder
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 8a8f77597c6be5e429a0dde1309ab87d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -138,7 +138,7 @@ PrefabInstance:
     - target: {fileID: 2300000, guid: 8a8f77597c6be5e429a0dde1309ab87d, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 2163f1532b18af3478e39475952f1ae7, type: 2}
+      objectReference: {fileID: 2100000, guid: 133346923945d9f4db816ec7db12fd03, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8a8f77597c6be5e429a0dde1309ab87d, type: 3}
 --- !u!4 &2402080302446883653 stripped
