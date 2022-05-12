@@ -11,12 +11,17 @@ public class TASManager : MonoBehaviour
     public TASManager getInstance(){ return mInstance_;}
     bool amItheInstance=false;
 
+    Queue<InputObject> inputRecorded;
+    InputData dataCollector;
+
     void Awake()
     {
         if(mInstance_==null && !amItheInstance){
             mInstance_=this;
             amItheInstance=true;
             DontDestroyOnLoad(this);
+            inputRecorded = new Queue<InputObject>();
+            dataCollector = new InputData();
         }
         else{
             Destroy(this.gameObject);
@@ -40,4 +45,16 @@ public class TASManager : MonoBehaviour
 
     }
 
+    private void saveInput() {
+        inputRecorded.Enqueue(dataCollector.getKeyboardInput());
+    }
+
+    void Update()
+    {
+        if (Input.anyKeyDown)
+        {
+            saveInput();
+        }
+
+    }
 }
