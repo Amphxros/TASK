@@ -13,40 +13,61 @@ public struct InputObject{
 
 public class InputData : MonoBehaviour
 {
-   float mTime_ = 0;
+    float mTime_ = 0;
     int mMinutes_ = 0;  // num minutes
     int mSeconds_ = 0;  //num secs
-    
-    public InputObject getKeyboardInput(){
+
+    public InputObject getKeyboardInput() {
         InputObject obj;
 
-        obj.key=Input.inputString;
-        obj.mMinutes_=mMinutes_;
-        obj.mSeconds_=mSeconds_;
+        obj.key = Input.inputString;
+        obj.mMinutes_ = mMinutes_;
+        obj.mSeconds_ = mSeconds_;
 
         return obj;
     }
-    
-    //CAMBIAR ESTO??
-    public InputObject getMouseInput(){
-         InputObject obj;
 
-        obj.key=Input.inputString;
-        obj.mMinutes_=mMinutes_;
-        obj.mSeconds_=mSeconds_;
+    //CAMBIAR ESTO??
+    public InputObject getMouseInput() {
+        InputObject obj;
+
+        obj.key = Input.inputString;
+        obj.mMinutes_ = mMinutes_;
+        obj.mSeconds_ = mSeconds_;
 
         return obj;
     }
 
     //Y ESTO MAYBE
-    public InputObject getGamePadInput(){
+    public InputObject getGamePadInput() {
         InputObject obj;
 
-        obj.key=Input.inputString;
-        obj.mMinutes_=mMinutes_;
-        obj.mSeconds_=mSeconds_;
+        obj.key = Input.inputString;
+        obj.mMinutes_ = mMinutes_;
+        obj.mSeconds_ = mSeconds_;
 
         return obj;
+    }
+
+    public InputObject[] getInputs() {
+        InputObject[] inputs;
+        int numInputs = Input.inputString.Length;
+        inputs = new InputObject[numInputs];
+
+        int i = 0;
+
+        foreach (char c in Input.inputString) {
+            InputObject obj;
+
+            obj.key = c.ToString();
+            obj.mMinutes_ = mMinutes_;
+            obj.mSeconds_ = mSeconds_;
+
+            inputs[i] = obj;
+            i++;
+        }
+
+        return inputs;
     }
     void Update()
     {

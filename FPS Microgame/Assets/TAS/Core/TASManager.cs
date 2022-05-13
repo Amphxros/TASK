@@ -46,7 +46,11 @@ public class TASManager : MonoBehaviour
     }
 
     private void saveInput() {
-        inputRecorded.Enqueue(dataCollector.getKeyboardInput());
+        InputObject[] newInputs = dataCollector.getInputs();
+
+        for (int i = 0; i < newInputs.Length; i++) {
+            inputRecorded.Enqueue(newInputs[i]);
+        }
     }
 
     void Update()
