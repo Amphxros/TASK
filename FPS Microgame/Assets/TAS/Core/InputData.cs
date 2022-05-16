@@ -16,6 +16,8 @@ public class InputData : MonoBehaviour
     float mTime_ = 0;
     int mMinutes_ = 0;  // num minutes
     int mSeconds_ = 0;  //num secs
+    bool newInput = false;
+    InputObject[] inputs;
 
     public InputObject getKeyboardInput() {
         InputObject obj;
@@ -50,7 +52,7 @@ public class InputData : MonoBehaviour
     }
 
     public InputObject[] getInputs() {
-        InputObject[] inputs;
+        
         Debug.Log(Input.inputString);
         int numInputs = Input.inputString.Length;
         inputs = new InputObject[numInputs];
@@ -70,8 +72,22 @@ public class InputData : MonoBehaviour
 
         return inputs;
     }
+
+    void compruebaInput() {
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            InputObject obj;
+
+            obj.key = "w";
+            obj.mMinutes_ = mMinutes_;
+            obj.mSeconds_ = mSeconds_;
+
+            Debug.Log("he llegado");
+        }
+    }
     void Update()
     {
+        
         if(Time.time - mTime_ <=60){
             mMinutes_++;
             mTime_=Time.time;
@@ -79,8 +95,14 @@ public class InputData : MonoBehaviour
         } 
         else{
             mSeconds_=(int)(Time.time - mTime_);
-        }       
+        }
+
+        compruebaInput();
         
+    }
+
+    public bool getNew() {
+        return newInput;
     }
 
 }

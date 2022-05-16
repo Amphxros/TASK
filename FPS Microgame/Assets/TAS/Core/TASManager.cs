@@ -21,7 +21,7 @@ public class TASManager : MonoBehaviour
             amItheInstance=true;
             DontDestroyOnLoad(this);
             inputRecorded = new Queue<InputObject>();
-            dataCollector = new InputData();
+            dataCollector = GetComponentInParent<InputData>();
         }
         else{
             Destroy(this.gameObject);
@@ -50,18 +50,15 @@ public class TASManager : MonoBehaviour
 
         for (int i = 0; i < newInputs.Length; i++) {
             inputRecorded.Enqueue(newInputs[i]);
-            Debug.Log("inpuuuut");
         }
     }
 
     void Update()
     {
-        Debug.Log("en update");
-        if (gameMode_ == GM.READINGINPUT /*&& Input.anyKeyDown*/)
+        if (gameMode_ == GM.READINGINPUT && dataCollector.getNew())
         {
-            
             saveInput();
         }
-
+        
     }
 }
