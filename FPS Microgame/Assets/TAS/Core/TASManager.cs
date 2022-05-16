@@ -8,7 +8,7 @@ public class TASManager : MonoBehaviour
     public GM gameMode_;
     private static TASManager mInstance_=null;
 
-    public TASManager getInstance(){ return mInstance_;}
+    public static TASManager getInstance(){ return mInstance_;}
     bool amItheInstance=false;
 
     Queue<InputObject> inputRecorded;
@@ -22,8 +22,7 @@ public class TASManager : MonoBehaviour
             amItheInstance=true;
             DontDestroyOnLoad(this);
             inputRecorded = new Queue<InputObject>();
-            //dataCollector = GetComponentInParent<InputData>();
-            serializer = GetComponentInParent<Serializer>();
+            serializer = new Serializer("partida");
         }
         else{
             Destroy(this.gameObject);
