@@ -5,11 +5,15 @@ using UnityEngine;
 
 public class Deserializer
 {
+    private string mFile_;
+    public Deserializer(string file){
+        mFile_=file;
+    }
 
-   public List<InputObject> deserialize(string file){
+   public List<InputObject> deserialize(){
        List<InputObject> input= new List<InputObject>();
 
-        StreamReader read= new StreamReader(file);
+        StreamReader read= new StreamReader(mFile_);
         int i=0;
         while(!read.EndOfStream){
 

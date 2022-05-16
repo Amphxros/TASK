@@ -12,9 +12,11 @@ public class TASManager : MonoBehaviour
     bool amItheInstance=false;
 
     Queue<InputObject> inputRecorded;
+    List<InputObject> inputToReproduce;
     Serializer serializer;
+    Deserializer deserializer;
     //InputData dataCollector;
-
+    public string filename;
     void Awake()
     {
         if(mInstance_==null && !amItheInstance){
@@ -22,7 +24,7 @@ public class TASManager : MonoBehaviour
             amItheInstance=true;
             DontDestroyOnLoad(this);
             inputRecorded = new Queue<InputObject>();
-            serializer = new Serializer("partida");
+            serializer = new Serializer(filename);
         }
         else{
             Destroy(this.gameObject);
@@ -31,17 +33,27 @@ public class TASManager : MonoBehaviour
 
     public void Play(){
         Debug.Log("playing");
+        Time.timeScale=1;
+        deserializer= new Deserializer(filename);
+        inputToReproduce= deserializer.deserialize();
+        
+
+
 
     }
     public void Pause(){
         Debug.Log("pause");
 
+        Time.timeScale = 0;
+
     }
     public void Stop(){
         Debug.Log("stop");
+        Application.Quit();
 
     }
     public void Rewind(){
+          Time.timeScale = -1;
         Debug.Log("rewind");
 
     }
