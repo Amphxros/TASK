@@ -51,6 +51,7 @@ public class InputData : MonoBehaviour
 
     public InputObject[] getInputs() {
         InputObject[] inputs;
+        Debug.Log(Input.inputString);
         int numInputs = Input.inputString.Length;
         inputs = new InputObject[numInputs];
 

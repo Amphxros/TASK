@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TASManager : MonoBehaviour
 {
-    [Header("Reading ipnut or replaying input")]
+    [Header("Reading input or replaying input")]
     public GM gameMode_;
     private static TASManager mInstance_=null;
 
@@ -50,13 +50,16 @@ public class TASManager : MonoBehaviour
 
         for (int i = 0; i < newInputs.Length; i++) {
             inputRecorded.Enqueue(newInputs[i]);
+            Debug.Log("inpuuuut");
         }
     }
 
     void Update()
     {
-        if (Input.anyKeyDown)
+        Debug.Log("en update");
+        if (gameMode_ == GM.READINGINPUT /*&& Input.anyKeyDown*/)
         {
+            
             saveInput();
         }
 
