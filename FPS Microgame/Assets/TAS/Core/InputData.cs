@@ -32,7 +32,7 @@ public class InputData : MonoBehaviour
         Event e = Event.current;
         if(e.isKey){
             
-        obj.key= "keyboard "  + e.KeyCode; 
+        obj.key= "keyboard "  + e.keyCode.ToString(); 
         obj.mMinutes_ = mMinutes_;
         obj.mSeconds_ = mSeconds_;
         }
@@ -45,7 +45,7 @@ public class InputData : MonoBehaviour
         Event e= Event.current;
         if(e.isMouse){
        
-        obj.key = "Mouse" + e.button +" position:"+ Input.mousePosition.x + " "+ Input.mousePosition.y;
+        obj.key = "mouse " + e.button +" position:"+ Input.mousePosition.x + " "+ Input.mousePosition.y;
         obj.mMinutes_ = mMinutes_;
         obj.mSeconds_ = mSeconds_;
         

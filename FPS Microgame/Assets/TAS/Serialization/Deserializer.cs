@@ -26,7 +26,9 @@ public class Deserializer
                 break;
 
                 case "mouse":
-                
+                obj.key+= words[1] + " position "+ words[3] + " "+ words[4];
+                obj.mMinutes_= int.Parse(words[5]);
+                obj.mMinutes_=int.Parse(words[6]);
                 break;
 
             }

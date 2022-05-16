@@ -12,8 +12,5 @@ public class DebugKey : MonoBehaviour
 
     void Update()
     {
-         Event e = Event.current;
-       
-        mText.text= e;
     }
 }
