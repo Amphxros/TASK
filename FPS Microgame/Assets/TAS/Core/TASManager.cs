@@ -45,20 +45,12 @@ public class TASManager : MonoBehaviour
 
     }
 
-    private void saveInput() {
-        InputObject[] newInputs = dataCollector.getInputs();
-
-        for (int i = 0; i < newInputs.Length; i++) {
-            inputRecorded.Enqueue(newInputs[i]);
-        }
+    public void saveInput(InputObject obj_) {
+        inputRecorded.Enqueue(obj_);
     }
 
     void Update()
     {
-        if (gameMode_ == GM.READINGINPUT && dataCollector.getNew())
-        {
-            saveInput();
-        }
         
     }
 }
