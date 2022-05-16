@@ -4296,6 +4296,7 @@ GameObject:
   - component: {fileID: 1117718522}
   - component: {fileID: 1117718521}
   - component: {fileID: 1117718523}
+  - component: {fileID: 1117718524}
   m_Layer: 0
   m_Name: tas
   m_TagString: Untagged
@@ -4342,6 +4343,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1753cd2d0d03d9342b72b9e0c6b37eb4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1117718524
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1117718520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf6f4ef0db3ca6e43b9a6ddc89f23df0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  file: partida1
 --- !u!4 &1119527406 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4143405420243982, guid: 568f19399467fe54196f7374d3df0632,

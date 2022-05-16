@@ -12,7 +12,8 @@ public class TASManager : MonoBehaviour
     bool amItheInstance=false;
 
     Queue<InputObject> inputRecorded;
-    InputData dataCollector;
+    Serializer serializer;
+    //InputData dataCollector;
 
     void Awake()
     {
@@ -21,7 +22,8 @@ public class TASManager : MonoBehaviour
             amItheInstance=true;
             DontDestroyOnLoad(this);
             inputRecorded = new Queue<InputObject>();
-            dataCollector = GetComponentInParent<InputData>();
+            //dataCollector = GetComponentInParent<InputData>();
+            serializer = GetComponentInParent<Serializer>();
         }
         else{
             Destroy(this.gameObject);
@@ -51,6 +53,9 @@ public class TASManager : MonoBehaviour
 
     void Update()
     {
-        
+        if (inputRecorded.Count > 0) {
+            serializer.serializa(inputRecorded);
+            inputRecorded.Clear();
+        }
     }
 }
