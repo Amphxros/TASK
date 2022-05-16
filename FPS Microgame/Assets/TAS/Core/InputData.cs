@@ -389,6 +389,160 @@ public class InputData : MonoBehaviour
 
             manager.saveInput(obj);
         }
+
+        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        {
+            InputObject obj;
+
+            obj.key = "leftArrow";
+            obj.mMinutes_ = mMinutes_;
+            obj.mSeconds_ = mSeconds_;
+
+            manager.saveInput(obj);
+        }
+
+        if (Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            InputObject obj;
+
+            obj.key = "rightArrow";
+            obj.mMinutes_ = mMinutes_;
+            obj.mSeconds_ = mSeconds_;
+
+            manager.saveInput(obj);
+        }
+
+        if (Input.GetKeyDown(KeyCode.UpArrow))
+        {
+            InputObject obj;
+
+            obj.key = "upArrow";
+            obj.mMinutes_ = mMinutes_;
+            obj.mSeconds_ = mSeconds_;
+
+            manager.saveInput(obj);
+        }
+
+        if (Input.GetKeyDown(KeyCode.DownArrow))
+        {
+            InputObject obj;
+
+            obj.key = "downArrow";
+            obj.mMinutes_ = mMinutes_;
+            obj.mSeconds_ = mSeconds_;
+
+            manager.saveInput(obj);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha0))
+        {
+            InputObject obj;
+
+            obj.key = "0";
+            obj.mMinutes_ = mMinutes_;
+            obj.mSeconds_ = mSeconds_;
+
+            manager.saveInput(obj);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            InputObject obj;
+
+            obj.key = "1";
+            obj.mMinutes_ = mMinutes_;
+            obj.mSeconds_ = mSeconds_;
+
+            manager.saveInput(obj);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            InputObject obj;
+
+            obj.key = "2";
+            obj.mMinutes_ = mMinutes_;
+            obj.mSeconds_ = mSeconds_;
+
+            manager.saveInput(obj);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            InputObject obj;
+
+            obj.key = "3";
+            obj.mMinutes_ = mMinutes_;
+            obj.mSeconds_ = mSeconds_;
+
+            manager.saveInput(obj);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha4))
+        {
+            InputObject obj;
+
+            obj.key = "4";
+            obj.mMinutes_ = mMinutes_;
+            obj.mSeconds_ = mSeconds_;
+
+            manager.saveInput(obj);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha5))
+        {
+            InputObject obj;
+
+            obj.key = "5";
+            obj.mMinutes_ = mMinutes_;
+            obj.mSeconds_ = mSeconds_;
+
+            manager.saveInput(obj);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha6))
+        {
+            InputObject obj;
+
+            obj.key = "6";
+            obj.mMinutes_ = mMinutes_;
+            obj.mSeconds_ = mSeconds_;
+
+            manager.saveInput(obj);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha7))
+        {
+            InputObject obj;
+
+            obj.key = "7";
+            obj.mMinutes_ = mMinutes_;
+            obj.mSeconds_ = mSeconds_;
+
+            manager.saveInput(obj);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha8))
+        {
+            InputObject obj;
+
+            obj.key = "8";
+            obj.mMinutes_ = mMinutes_;
+            obj.mSeconds_ = mSeconds_;
+
+            manager.saveInput(obj);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha9))
+        {
+            InputObject obj;
+
+            obj.key = "9";
+            obj.mMinutes_ = mMinutes_;
+            obj.mSeconds_ = mSeconds_;
+
+            manager.saveInput(obj);
+        }
     }
     void Update()
     {
