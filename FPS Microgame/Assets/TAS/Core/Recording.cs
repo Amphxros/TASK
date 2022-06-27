@@ -53,7 +53,9 @@ public class Recording : ISerializationCallbackReceiver
     private int _schemaVersion = _CURRENT_JSON_SCHEMA_VERSION;      // make sure schema version is in the JSON
     private const int _CURRENT_JSON_SCHEMA_VERSION = 1;
     
-
+    public int FrameCount => frames.Count;
+    public float Length => frames.Count > 0 ? frames[frames.Count - 1].time : 0;
+    
     public Recording(){
        
     }
@@ -64,8 +66,60 @@ public class Recording : ISerializationCallbackReceiver
         if(old==null){
             return;
         }
+        frames.AddRange(old.frames);
 
     }
+    
+    public int getFrameForTime(float time){
+        if(FrameCount==0){
+            return -1;
+        }
+        else{
+            for(int i=1; i<FrameCount; i++){
+                if(frames[i].time>time){
+                    return i-1;
+                }
+            }
+
+            return FrameCount -1;
+        }
+    }
+
+    private void clearAllFrames(){
+        frames.Clear();
+    }
+    public void clearFrames(int frame){
+        if(frame>0 && frame<FrameCount){
+            frames.RemoveRange(frame, FrameCount-frame);
+        }
+        else{
+            clearAllFrames();
+        }
+    }
+
+    public void addFrame(float time){
+        if(FrameCount>0){
+            if(time<=Length){
+                return;
+            }
+        }
+
+        Frame frame= new Frame(time);
+        frames.Add(frame);
+    }
+
+    public void addInput(int frame, InputState input){
+        
+      
+    }
+
+    public void addProperty(int frame, string propertyName, string propertyValue){
+
+    }
+
+
+
+
     public void OnBeforeSerialize()
     {
         // do nothing
