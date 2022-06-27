@@ -4,6 +4,7 @@ using UnityEngine;
 
 public static class KeycodeHelper 
 {
+    //returns the keyname given keycode, also works with gamepad buttons and joysticks
     public static string GetKey(KeyCode kc)
     {
        switch (kc)
@@ -74,6 +75,7 @@ public static class KeycodeHelper
             case KeyCode.RightArrow:
                 return "right";
 
+            //mouse buttons
             case KeyCode.Mouse0:
                 return "mouse 0";
             case KeyCode.Mouse1:
@@ -89,6 +91,9 @@ public static class KeycodeHelper
             case KeyCode.Mouse6:
                 return "mouse 6";
 
+            // joysticks 
+
+            //first joystick
             #region Joysticks
             case KeyCode.JoystickButton0:
                 return "joystick button 0";
@@ -131,6 +136,7 @@ public static class KeycodeHelper
             case KeyCode.JoystickButton19:
                 return "joystick button 19";
 
+            //2nd joystick
             case KeyCode.Joystick1Button0:
                 return "joystick 1 button 0";
             case KeyCode.Joystick1Button1:
@@ -172,6 +178,7 @@ public static class KeycodeHelper
             case KeyCode.Joystick1Button19:
                 return "joystick 1 button 19";
 
+            //3rd joystick
             case KeyCode.Joystick2Button0:
                 return "joystick 2 button 0";
             case KeyCode.Joystick2Button1:
@@ -212,7 +219,8 @@ public static class KeycodeHelper
                 return "joystick 2 button 18";
             case KeyCode.Joystick2Button19:
                 return "joystick 2 button 19";
-
+            
+            // 4th joystick
             case KeyCode.Joystick3Button0:
                 return "joystick 3 button 0";
             case KeyCode.Joystick3Button1:
@@ -254,6 +262,7 @@ public static class KeycodeHelper
             case KeyCode.Joystick3Button19:
                 return "joystick 3 button 19";
 
+            // 5th joystick
             case KeyCode.Joystick4Button0:
                 return "joystick 4 button 0";
             case KeyCode.Joystick4Button1:
@@ -294,7 +303,7 @@ public static class KeycodeHelper
                 return "joystick 4 button 18";
             case KeyCode.Joystick4Button19:
                 return "joystick 4 button 19";
-
+            // 6th joystick
             case KeyCode.Joystick5Button0:
                 return "joystick 5 button 0";
             case KeyCode.Joystick5Button1:
@@ -335,7 +344,7 @@ public static class KeycodeHelper
                 return "joystick 5 button 18";
             case KeyCode.Joystick5Button19:
                 return "joystick 5 button 19";
-
+            // 7th joystick
             case KeyCode.Joystick6Button0:
                 return "joystick 6 button 0";
             case KeyCode.Joystick6Button1:
@@ -376,7 +385,7 @@ public static class KeycodeHelper
                 return "joystick 6 button 18";
             case KeyCode.Joystick6Button19:
                 return "joystick 6 button 19";
-
+            // 8th joystick
             case KeyCode.Joystick7Button0:
                 return "joystick 7 button 0";
             case KeyCode.Joystick7Button1:
@@ -418,6 +427,7 @@ public static class KeycodeHelper
             case KeyCode.Joystick7Button19:
                 return "joystick 7 button 19";
 
+            // 9th joystick
             case KeyCode.Joystick8Button0:
                 return "joystick 8 button 0";
             case KeyCode.Joystick8Button1:
@@ -460,6 +470,7 @@ public static class KeycodeHelper
                 return "joystick 8 button 19";
             #endregion
 
+            //special keys like shift, alt...
             case KeyCode.AltGr:
                 return "alt gr";
             case KeyCode.Ampersand:

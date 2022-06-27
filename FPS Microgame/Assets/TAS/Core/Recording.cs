@@ -116,17 +116,39 @@ public class Recording : ISerializationCallbackReceiver
     public void addProperty(int frame, string propertyName, string propertyValue){
 
     }
+    public void addProperty(int frame, FrameProperty property){
+    
+    }
 
-
+    
+    Frame GetFrame( int frameIdx ) {
+        if ( frameIdx < 0 || frameIdx >= frames.Count )
+            throw new ArgumentException( "Tried to get frame outside recorded range" );
+        return frames[frameIdx];
+    }
+    public string GetProperty( int atFrame, string propertyName ) {
+         Frame frame = GetFrame( atFrame );
+         for ( int i = 0; i < frame.properties.Count; i++ ) {
+             if ( frame.properties[i].name == propertyName )
+                 return frame.properties[i].value;
+         }
+         Debug.LogWarning( "Property " + propertyName + " not found in frame " + atFrame );
+         return "";
+    }
+    public void GetProperties( int atFrame, List<FrameProperty> outProps ) {
+        outProps.AddRange( GetFrame( atFrame ).properties );
+    }
 
 
     public void OnBeforeSerialize()
     {
-        // do nothing
+        _schemaVersion = _CURRENT_JSON_SCHEMA_VERSION;
     }
     public void OnAfterDeserialize()
     {
-        // do nothing
+        if ( _schemaVersion != _CURRENT_JSON_SCHEMA_VERSION ){
+            throw new Exception( "Incompatible schema version" );
+        }
     }
 
 }
