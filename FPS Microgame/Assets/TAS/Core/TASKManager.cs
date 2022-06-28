@@ -67,6 +67,57 @@ public class TASKManager : MonoBehaviour
 
     // mouse functions
 
+    private static string GetMouseButtonID( int button )
+    {
+        return _MOUSE_BUTTON_ID + button;
+    }
+
+    //Keyboard and Joystick functions
+
+    private static string GetKeyID( KeyCode key )
+    {
+        return KeycodeHelper.GetKey( key );
+    }
+
+    class RecordingState {
+        public readonly Recording target;
+
+        public float Time{get; private set;}
+        public float FrameIndex{get; private set;}=-1;
+        public RecordingState( Recording target )
+        {
+             this.target = target;
+        }
+
+        public void SkipToTime( float time )
+        {
+           this.Time = Mathf.Clamp( time, 0, target.Length );
+           this.FrameIndex= target.GetFrameForTime( this.Time );
+        }
+
+        public void AdvanceByTime(float dt){
+            this.Time += dt;
+            this.FrameIndex= target.GetFrameForTime( this.Time );
+        }
+
+        public void AppendNewRecordingFrame(float dt){
+            this.Time+=dt;
+            target.addFrame(this.Time);
+            this.FrameIndex= target.FrameCount-1;
+        }
+
+        public void AddInputToCurrentFrame(Recording.FrameProperty fp){
+            target.addProperty(fp);
+        }
+
+       public void Clear(){
+            target.clearFrames(this.FrameIndex);
+       }
+
+
+
+    }
+
     
 
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public static class KeycodeHelper 
 {
-    //returns the keyname given keycode, also works with gamepad buttons and joysticks
+    //returns the keyname given keycode, also works with mouse buttons, gamepad buttons and joysticks
     public static string GetKey(KeyCode kc)
     {
        switch (kc)
@@ -90,6 +90,12 @@ public static class KeycodeHelper
                 return "mouse 5";
             case KeyCode.Mouse6:
                 return "mouse 6";
+            case KeyCode.Mouse7:
+                return "mouse 7";
+            case KeyCode.Mouse8:
+                return "mouse 8";
+            case KeyCode.Mouse9:    
+                return "mouse 9";
 
             // joysticks 
 
