@@ -17,53 +17,55 @@ public struct TransformState{
 
 public class TASKTransformSyncer : MonoBehaviour
 {
-     public TASKManager mngr;
+     public TASKManager recorderToSyncTo;
 
-     public string customTag;
-     public string recordingTagPrefix=>(string.IsNullOrEmpty(customTag) ?name : customTag) + "_transform";
+        [Tooltip( "If left blank, GameObject's name will be used" )]
+        public string customTag;
+        public string RecordingTagPrefix => ( string.IsNullOrEmpty( customTag ) ? name : customTag ) + "_transform";
 
-     public bool syncPosition;
-     public bool syncRotation;
-     public bool syncScale;
+        public bool syncPosition = true;
+        public bool syncRotation = true;
+        public bool syncScale = true;
 
-     /// <summary>
-     /// Update is called every frame, if the MonoBehaviour is enabled.
-     /// </summary>
-    void Update()
-    {
-         if(mngr == null)
-         {
-             Debug.LogError("TASKTransformSyncer: recorderToSyncTo is null");
-             return;
-         }
-         if(!syncPosition && !syncRotation && !syncScale)
-         {
-             Debug.LogError("TASKTransformSyncer: nothing to sync");
-             return;
-         }
+        void Update() {
+            if ( recorderToSyncTo == null )
+                return;
 
-         if(mngr.Mode == InputTASKMode.Record){
+            if ( !syncPosition && !syncRotation && !syncScale )
+                return;
 
-         }
-         else if(mngr.Mode==InputTASKMode.Playback){
+            if ( recorderToSyncTo.Mode == InputVCRMode.Record ) {
+                RecordTransformState();
+            }
+            else if ( recorderToSyncTo.Mode == InputVCRMode.Playback ) {
+                MatchTransformToRecording();
+            }
+        }
+
+        /// <summary>
+        /// Record this transforms state to the current recording in the VCR
+        /// </summary>
+        void RecordTransformState() {
+            TransformState currentState = new TransformState( transform );
+            string stateString = JsonUtility.ToJson( currentState );
+
+            recorderToSyncTo.SaveProperty( RecordingTagPrefix, stateString );
+        }
     
-         }
-    }
-    
-    void MatchTransform(){
-        
+    void MatchTransformToRecording() {
+            if ( recorderToSyncTo.TryGetProperty( RecordingTagPrefix, out string stateString ) ) {
+                TransformState recordedState = JsonUtility.FromJson<TransformState>( stateString );
 
-        if(syncPosition){
-        
-        }
-        if(syncRotation){
-        
-        }
-        if(syncScale){
-        
-        }
+                if ( syncPosition )
+                    transform.localPosition = recordedState.position;
 
-    }
+                if ( syncRotation )
+                    transform.localRotation = recordedState.rotation;
+
+                if ( syncScale )
+                    transform.localScale = recordedState.scale;
+            }
+        }
 
     void recordTransform(){
         TransformState t= new TransformState(transform.position, transform.rotation, transform.localScale);
