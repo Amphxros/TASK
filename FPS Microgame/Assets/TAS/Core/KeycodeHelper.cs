@@ -90,12 +90,7 @@ public static class KeycodeHelper
                 return "mouse 5";
             case KeyCode.Mouse6:
                 return "mouse 6";
-            case KeyCode.Mouse7:
-                return "mouse 7";
-            case KeyCode.Mouse8:
-                return "mouse 8";
-            case KeyCode.Mouse9:    
-                return "mouse 9";
+        
 
             // joysticks 
 
