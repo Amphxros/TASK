@@ -3,15 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public struct TransformState{
+public struct TransformState {
     public Vector3 position;
     public Quaternion rotation;
     public Vector3 scale;
-
-    public TransformState(Vector3 position, Quaternion rotation, Vector3 scale){
-        this.position = position;
-        this.rotation = rotation;
-        this.scale = scale;
+    public TransformState( Transform t ) {
+        position = t.localPosition;
+        rotation = t.localRotation;
+        scale = t.localScale;
     }
 }
 
@@ -34,10 +33,10 @@ public class TASKTransformSyncer : MonoBehaviour
             if ( !syncPosition && !syncRotation && !syncScale )
                 return;
 
-            if ( recorderToSyncTo.Mode == InputVCRMode.Record ) {
+            if ( recorderToSyncTo.Mode == InputTASKMode.Record ) {
                 RecordTransformState();
             }
-            else if ( recorderToSyncTo.Mode == InputVCRMode.Playback ) {
+            else if ( recorderToSyncTo.Mode == InputTASKMode.Playback ) {
                 MatchTransformToRecording();
             }
         }
@@ -52,7 +51,7 @@ public class TASKTransformSyncer : MonoBehaviour
             recorderToSyncTo.SaveProperty( RecordingTagPrefix, stateString );
         }
     
-    void MatchTransformToRecording() {
+      void MatchTransformToRecording() {
             if ( recorderToSyncTo.TryGetProperty( RecordingTagPrefix, out string stateString ) ) {
                 TransformState recordedState = JsonUtility.FromJson<TransformState>( stateString );
 
@@ -68,7 +67,7 @@ public class TASKTransformSyncer : MonoBehaviour
         }
 
     void recordTransform(){
-        TransformState t= new TransformState(transform.position, transform.rotation, transform.localScale);
+        TransformState t= new TransformState(transform);
         string state= JsonUtility.ToJson(t);
 
     }
